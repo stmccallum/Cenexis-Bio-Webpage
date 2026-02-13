@@ -49,7 +49,16 @@ p { margin-bottom: 20px; color: var(--text-muted); font-size: 15px; max-width: 7
     margin-bottom: 16px;
     font-weight:700;
 }
-
+blockquote {
+    border-left: 3px solid var(--brand-red);
+    padding: 12px 0 12px 30px;
+    font-style: italic;
+    color: var(--text-primary); /* This ensures it uses the deep navy-black color */
+    margin: 40px 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+}
 /* --- HEADER & NAV --- */
 header {
     display: flex;
