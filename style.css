@@ -1,11 +1,11 @@
 /* --- DESIGN TOKENS (LIGHT SLATE THEME) --- */
 :root {
     --brand-red: #c61a24;
-    --bg-main: #f4f7f9;       /* Light Blue-Grey Background */
-    --panel-slate: #ffffff;    /* White cards for clean contrast */
-    --border-cool: #d1d9e0;   /* Subtle blue-grey borders */
-    --text-primary: #1a1f23;  /* Dark Slate Text */
-    --text-muted: #586069;    /* Muted Slate Text */
+    --bg-main: #e2e8f0;       /* Darker Blue-Grey (Slate 200) */
+    --panel-slate: #f8fafc;    /* Very light grey for cards to pop against the background */
+    --border-cool: #cbd5e1;   /* Darker border for definition */
+    --text-primary: #0f172a;  /* Deep navy-black text */
+    --text-muted: #475569;    /* Slate-grey muted text */
     --white: #ffffff;
     --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-mono: 'SFMono-Regular', Consolas, monospace;
