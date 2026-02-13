@@ -71,6 +71,10 @@ header {
     border-bottom: 1px solid var(--border-cool);
     padding-bottom: 20px;
     margin-bottom: 60px;
+    position:sticky;
+    Top:=0;
+    background-color: var(--bg-main);
+    z-index: 1000;
 }
 .brand { font-size: 14px; font-weight: 800; letter-spacing: 0.3em; color: var(--text-primary); }
 nav a {
