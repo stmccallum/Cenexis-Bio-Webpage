@@ -108,13 +108,6 @@ nav a:hover { color: var(--brand-red); }
 }
 .stat-item h3 { color: var(--brand-red); font-size: 28px; font-family: var(--font-mono); }
 
-/* --- FORM --- */
-.contact-box {
-    background: #e9eff3;
-    padding: 40px;
-    max-width: 600px;
-    margin: 40px auto;
-    border-radius: 4px;
 }
 .contact-box input, .contact-box select {
     width: 100%;
