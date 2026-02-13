@@ -3,172 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cenexis Bio | Confidential Briefing [LLNL-02 / CX-101]</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <title>Cenexis Bio - Confidential Briefing</title>
+    <style>
+        /* --- RESET & BASICS --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #060606;
+            color: #d9d9d9;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { color: #ffffff; line-height: 1.2; }
+        h1 { font-size: 42px; margin-bottom: 20px; }
+        h2 { font-size: 30px; margin-top: 40px; margin-bottom: 15px; color: #d9d9d9; }
+        h3 { font-size: 18px; color: #ffffff; margin-top: 20px; margin-bottom: 5px; }
+        
+        p { margin-bottom: 15px; color: #757575; font-size: 14px; }
+        strong { color: #d9d9d9; }
+        
+        /* --- UTILITY COLORS --- */
+        .text-red { color: #c61a24; }
+        .text-green { color: #2cc55e; }
+        .text-white { color: #ffffff; }
+        
+        /* --- HEADER & NAV --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .brand { font-size: 18px; font-weight: bold; letter-spacing: 1px; }
+        nav a {
+            color: #757575;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        nav a:hover { color: #c61a24; }
+/* --- HERO SECTION --- */
+        .hero { margin-bottom: 60px; }
+        .confidential-tag {
+            color: #c61a24;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .hero-subtitle { font-size: 16px; color: #757575; max-width: 600px; }
+        .cta-arrow { color: #c61a24; margin-top: 20px; display: block; font-weight: bold; text-decoration: none;}
+
+
+        /* --- LISTS --- */
+        ul { list-style: none; margin-bottom: 20px; }
+        li { margin-bottom: 8px; padding-left: 15px; border-left: 2px solid #333; color: #d9d9d9; font-size: 13px; }
+
+        /* --- COMPARISON (Status Quo vs Solution) --- */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 30px 0;
+        }
+        .status-block h4 { font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; }
+        
+        /* --- STATS GRID --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .stat-item h3 { color: #c61a24; font-size: 24px; margin-bottom: 5px; }
+        .stat-item p { font-size: 11px; color: #757575; background: #0f0f0f; padding: 10px; border-radius: 4px; }
+
+        /* --- TEAM GRID --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .team-member { background: #0f0f0f; padding: 20px; border-radius: 4px; }
+        .team-role { color: #c61a24; font-size: 11px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+        /* --- FOOTER & FORM --- */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        .contact-box {
+            background: #0f0f0f;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+        }
+        .contact-box input, .contact-box select {
+            width: 100%;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-request {
+            background: #c61a24;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .contact-links a { color: #757575; text-decoration: none; display: block; margin-bottom: 5px; }
+        .contact-links a:hover { color: #fff; }
+
+    </style>
 </head>
 <body>
 
-    <div id="preloader">
-        <div class="loader-content">
-            <h2 class="loader-logo">CENEXIS<span>BIO</span></h2>
-            <div class="loader-bar-wrapper"><div class="loader-bar"></div></div>
-            <p class="data-label">VERIFYING CNS DEFENSE PROTOCOLS...</p>
-        </div>
-    </div>
-
-    <nav class="glass-nav">
-        <div class="logo">CENEXIS<span>BIO</span></div>
-        <ul class="nav-links">
-            <li><a href="#gap">The Gap</a></li>
-            <li><a href="#solution">Solution</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact" class="cta-btn">Request Access</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="brand">CENEXIS BIO</div>
+        <nav>
+            <a href="#gap">The Gap</a>
+            <a href="#solution">Solution</a>
+            <a href="#status">Status</a>
+            <a href="#team">Team</a>
+            <a href="#contact" style="color: #c61a24;">Request Access</a>
+        </nav>
+    </header>
 
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="neural-defense.mp4" type="video/mp4">
-        </video>
+        <span class="confidential-tag">CONFIDENTIAL BRIEFING // [LLNL-02 / CX-101]</span>
+        <h1>Beyond Survival.<br><span style="opacity: 0.5;">Protecting the Cognitive Edge.</span></h1>
+        <p class="hero-subtitle">Developing the next generation of nerve agent antidotes. The first therapeutic capability was designed to preserve both life and brain function.</p>
+        <a href="#" class="cta-arrow">VIEW THE MISSION ↓</a>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <section id="gap">
+        <h2>The Status Quo is Grossly Inadequate</h2>
+        <p>Nerve agents—including Sarin, VX, and Novichok—remain a credible and evolving threat in asymmetric conflicts. Current medical countermeasures (legacy oximes) save lives; they were designed for survival, not neuroprotection.</p>
+        <ul>
+            <li><strong>The Barrier:</strong> Existing antidotes possess limited CNS penetration.</li>
+            <li><strong>The Consequence:</strong> Survivors often suffer rapid, irreversible neurologic damage.</li>
+            <li><strong>The Gap:</strong> There are currently no FDA-approved CNS-protective antidotes.</li>
+        </ul>
+        <blockquote style="border-left: 3px solid #c61a24; padding-left: 15px; font-style: italic; color: #d9d9d9; margin: 20px 0;">
+            "Current countermeasures keep the victim alive but leave them unprotected from longterm neurologic injury."
+        </blockquote>
+    </section>
+
+    <section class="comparison-grid" id="solution">
+        <div class="status-block">
+            <h4 class="text-red">BLOOD-BRAIN BARRIER: BLOCKED</h4>
+            <p>Legacy solutions cannot reach the brain effectively to stop central seizure activity.</p>
+        </div>
+        <div class="status-block">
+            <h4 class="text-green">TARGET: PENETRATED</h4>
+            <h3 class="text-green" style="margin-top: 0;">LLNL-02 / CX-101</h3>
+            <p>The first nerve-agent antidote capable of crossing the blood-brain barrier to preserve neurologic function.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>True CNS Defense: LLNL-02 / CX-101</h2>
+        <p>Developed at Lawrence Livermore National Laboratory (LLNL), LLNL-02 / CX-101 is engineered to replace the 60-year-old agent currently in the Strategic National Stockpile.</p>
         
-        <div class="hero-content">
-            <span class="confidential-tag">CONFIDENTIAL BRIEFING // [LLNL-02 / CX-101]</span>
-            <h1>BEYOND <span class="outline-text">SURVIVAL.</span></h1>
-            <p>Developing the next generation of nerve agent antidotes. The first therapeutic capability designed to preserve both life and brain function.</p>
-            <a href="#gap" class="cta-arrow">VIEW THE MISSION ↓</a>
-        </div>
-    </section>
-
-    <section id="gap" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">The Status Quo is Grossly Inadequate</h2>
-                <p>Nerve agents—including Sarin, VX, and Novichok—remain a credible and evolving threat. Current medical countermeasures were designed for survival, not neuroprotection.</p>
+        <div class="team-grid"> <div>
+                <h3>First-in-Class CNS Penetration</h3>
+                <p>Developed by LLNL research scientists as the first nerve-agent antidote capable of crossing the blood-brain barrier.</p>
             </div>
-
-            <div class="comparison-grid">
-                <div class="glass-card border-red">
-                    <h4 class="text-red">BLOOD-BRAIN BARRIER: BLOCKED</h4>
-                    <p>Legacy solutions cannot reach the brain effectively to stop central seizure activity.</p>
-                </div>
-                <div class="glass-card border-green">
-                    <h4 class="text-green">TARGET: PENETRATED</h4>
-                    <h3 class="text-green">LLNL-02 / CX-101</h3>
-                    <p>The first nerve-agent antidote capable of crossing the blood-brain barrier to preserve neurologic function.</p>
-                </div>
+            <div>
+                <h3>5x Longer Exposure</h3>
+                <p>Demonstrates approximately 5x longer durable systemic exposure than current standard-of-care antidotes.</p>
             </div>
-
-            <blockquote class="modern-quote">
-                "Current countermeasures keep the victim alive but leave them unprotected from long-term neurologic injury."
-            </blockquote>
-        </div>
-    </section>
-
-    <section id="status" class="services-section grey-bg">
-        <div class="container">
-            <h2 class="section-title">De-Risked Execution</h2>
-            <div class="stats-grid">
-                <div class="stat-item glass-card">
-                    <h3>$7M</h3>
-                    <p class="data-label">Non-Dilutive Gov Investment</p>
-                </div>
-                <div class="stat-item glass-card">
-                    <h3>LLNL</h3>
-                    <p class="data-label">Developed at Lawrence Livermore</p>
-                </div>
-                <div class="stat-item glass-card">
-                    <h3>FDA</h3>
-                    <p class="data-label">Animal Rule Pathway</p>
-                </div>
-                <div class="stat-item glass-card">
-                    <h3>US GOV</h3>
-                    <p class="data-label">Guaranteed Validator</p>
-                </div>
+            <div>
+                <h3>Drop-In Ready</h3>
+                <p>Designed as a superior replacement for legacy oximes in existing autoinjector platforms—not just an adjunct.</p>
             </div>
         </div>
     </section>
 
-    <section id="team" class="services-section">
-        <div class="container">
-            <h2 class="section-title">The Architects</h2>
-            <div class="team-grid">
-                <div class="team-member glass-card">
-                    <span class="team-role">CEO</span>
-                    <h3>Ray Stevens, MBA</h3>
-                    <p>Expertise: Program execution & leadership.</p>
-                </div>
-                <div class="team-member glass-card">
-                    <span class="team-role">CMO</span>
-                    <h3>Stewart McCallum, MD FACS</h3>
-                    <p>20+ years of global development & regulatory expertise.</p>
-                </div>
-                <div class="team-member glass-card">
-                    <span class="team-role">Head, CMC & Quality</span>
-                    <h3>Dale Bennyhoff</h3>
-                    <p>25+ years in CMC, scale-up, and GMP readiness.</p>
-                </div>
-                <div class="team-member glass-card">
-                    <span class="team-role">CBO / CFO</span>
-                    <h3>Bryan Katz, MBA</h3>
-                    <p>26-year pharma leader & US Marine.</p>
-                </div>
+    <section id="status">
+        <h2>De-Risked Execution</h2>
+        <p>A mandated execution program aligned with national security requirements.</p>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>$7M</h3>
+                <p>Non-Dilutive Gov Investment</p>
+            </div>
+            <div class="stat-item">
+                <h3>LLNL</h3>
+                <p>Developed at Lawrence Livermore National Lab</p>
+            </div>
+            <div class="stat-item">
+                <h3>FDA</h3>
+                <p>Animal Rule Pathway (No Human Efficacy Trials)</p>
+            </div>
+            <div class="stat-item">
+                <h3>US GOV</h3>
+                <p>Guaranteed Buyer & Validator</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="footer-section">
-        <div class="container">
-            <div class="contact-box glass-card text-center">
-                <span class="confidential-tag">AUTHORIZED PARTIES ONLY</span>
-                <h2>Restricted Access</h2>
-                <p>Cenexis Bio is executing a government-aligned Series A roadmap. Detailed data rooms and briefing materials are available upon verified request.</p>
-                
-                <a href="mailto:info@cenexisbio.com?subject=Briefing Request: Authorized Access" class="btn-request-large">REQUEST BRIEFING ACCESS</a>
+    <section id="team">
+        <h2>The Architects</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Ray Stevens, MBA</h3>
+                <span class="team-role">CEO</span>
+                <p>Expertise: Program execution & leadership.</p>
             </div>
-            
-            <div class="contact-links">
-                <p class="data-label">Direct Executive Outreach:</p>
-                <div class="link-group">
-                    <a href="mailto:info@cenexisbio.com">Ray Stevens (CEO)</a>
-                    <span class="divider">|</span>
-                    <a href="mailto:info@cenexisbio.com">Bryan Katz (CBO)</a>
-                </div>
+            <div class="team-member">
+                <h3>Stewart McCallum, MD FACS</h3>
+                <span class="team-role">CMO</span>
+                <p>20 + years of global development & regulatory expertise.</p>
             </div>
-            <p class="copyright">© 2026 Cenexis Bio. All Rights Reserved.</p>
+            <div class="team-member">
+                <h3>Dale Bennyhoff </h3>
+                <span class="team-role">Head, CMC & Quality</span>
+                <p>25+ years in CMC, scale-up, and GMP readiness.</p>
+            </div>
+            <div class="team-member">
+                <h3>Bryan Katz, MBA</h3>
+                <span class="team-role">CBO / CFO</span>
+                <p>26-year pharma leader & US Marine.</p>
+            </div>
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-       document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
-            const tl = gsap.timeline();
-            tl.to(".loader-bar", { width: "100%", duration: 1.5 })
-              .to("#preloader", { yPercent: -100, duration: 1.2, ease: "expo.inOut" })
-              .from(".hero-content *", { opacity: 0, y: 30, stagger: 0.2, duration: 1 });
+    <section class="footer">
+        <h2>Restricted Access</h2>
+        <p style="margin-bottom: 30px;">Cenexis Bio is currently executing a government-aligned Series A roadmap. Detailed data rooms are available only to authorized parties.</p>
+        
+        <div class="contact-box">
+            <p class="text-white" style="margin-bottom: 10px;">Request Briefing</p>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Organization / Fund">
+            <input type="email" placeholder="Official Email">
+            <select>
+                <option>Investor Relations</option>
+                <option>Strategic Partnership (DoD/BARDA)</option>
+                <option>Media</option>
+            </select>
+            <button class="btn-request">REQUEST BRIEFING</button>
+        </div>
 
-            // Animate sections into view
-            gsap.utils.toArray(".services-section").forEach(section => {
-                gsap.from(section.querySelectorAll(".glass-card"), {
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top 80%"
-                    },
-                    opacity: 0,
-                    y: 40,
-                    stagger: 0.15,
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            });
-        });
-    </script>
+        <div class="contact-links">
+            <p>Direct Contact:</p>
+            <a href="mailto:info@cenexisbio.com">Ray Stevens (CEO) – info@cenexisbio.com</a>
+            <a href="mailto:info@cenexisbio.com">Bryan Katz (CBO) – info@cenexisbio.com</a>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 10px; opacity: 0.5;">© 2026 Cenexis Bio. All Rights Reserved.</p>
+    </section>
+
 </body>
 </html>
