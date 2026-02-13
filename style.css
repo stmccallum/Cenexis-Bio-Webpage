@@ -29,24 +29,25 @@ body {
 h1, h2, h3, h4 { color: var(--text-primary); font-weight: 700; letter-spacing: -0.02em; }
 h1 { font-size: 52px; margin-bottom: 24px; line-height: 1.1; }
 h2 { 
-    font-size: 28px; 
-    margin-top: 60px; 
-    margin-bottom: 20px; 
+    font-size: 36px; 
+    margin-top: 40px; 
+    margin-bottom: 24px; 
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-bottom: 2px solid var(--brand-red); /* Red accent underline */
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 p { margin-bottom: 20px; color: var(--text-muted); font-size: 15px; max-width: 75ch; }
 .eyebrow {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     color: var(--brand-red);
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    font-weight:700;
 }
 
 /* --- HEADER & NAV --- */
