@@ -1,286 +1,86 @@
-/* --- 1. DESIGN TOKENS & VARIABLES --- */
+/* --- 1. FONTS & ROOT --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500&display=swap');
+
 :root {
-    /* Colors */
     --bg-dark: #060606;
-    --text-main: #d9d9d9;
-    --text-muted: #888888;
     --accent-red: #c61a24;
     --accent-green: #2cc55e;
-    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
-    
-    /* Typography Scale */
-    --fs-h1: clamp(2.5rem, 8vw, 5.5rem);
-    --fs-h2: clamp(1.8rem, 4vw, 2.5rem);
-    --fs-body: 1rem;
-    --ls-tight: -0.04em;
 }
 
-/* --- 2. GLOBAL RESET & BASE --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    background-color: var(--bg-dark); 
+    color: #d9d9d9; 
+    font-family: 'Inter', sans-serif; 
     line-height: 1.6;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-/* --- 3. THE "BRIGHT" GLASS NAV --- */
-.glass-nav {
-    position: fixed;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1100px;
-    padding: 14px 35px;
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(25px);
-    border: 1px solid var(--glass-border);
-    border-radius: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* --- 2. THE BRIGHTER NAV --- */
+header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    padding: 20px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(6, 6, 6, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
     z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+.brand { font-family: 'Plus Jakarta Sans'; font-weight: 800; letter-spacing: 1px; font-size: 1.2rem; }
+nav a { color: #888; text-decoration: none; margin-left: 25px; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 1.5px; transition: 0.3s; }
+nav a:hover { color: #fff; }
 
-.logo {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: 1px;
-    color: #fff;
-}
-
-.logo span { color: var(--accent-red); }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover, .cta-nav {
-    color: #fff !important;
-}
-
-/* --- 4. HERO & CINEMATIC LAYERS --- */
+/* --- 3. HERO WITH DEPTH --- */
 .hero {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    display: flex; flex-direction: column; justify-content: center;
     padding: 0 5%;
+    background: radial-gradient(circle at 80% 20%, rgba(198, 26, 36, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(44, 197, 94, 0.05) 0%, transparent 40%);
 }
+h1 { font-family: 'Plus Jakarta Sans'; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1; color: #fff; margin: 20px 0; font-weight: 800; }
+.outline-text { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
+.confidential-tag { font-family: 'JetBrains Mono'; color: var(--accent-red); font-size: 11px; letter-spacing: 3px; font-weight: bold; }
 
-.hero-video, .hero-image {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.4;
-}
-
-h1 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: var(--fs-h1);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: var(--ls-tight);
-    color: #fff;
-}
-
-.outline-text {
-    -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
-    color: transparent;
-}
-
-.confidential-tag {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent-red);
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 20px;
-}
-
-/* --- 5. BENTO GRID & GLASS CARDS --- */
-.services-section {
-    padding: 140px 5% 100px;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: var(--fs-h2);
-    font-weight: 700;
-    letter-spacing: -1px;
-    color: #fff;
-    margin-bottom: 50px;
-}
-
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-}
+/* --- 4. GLASS CARDS & BENTO --- */
+section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+h2 { font-family: 'Plus Jakarta Sans'; font-size: 2rem; color: #fff; margin-bottom: 30px; }
 
 .glass-card {
-    background: var(--glass-bg);
+    background: var(--glass);
     border: 1px solid var(--glass-border);
-    padding: 50px;
-    border-radius: 30px;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+    border-radius: 20px;
+    padding: 40px;
+    transition: 0.4s ease;
+    backdrop-filter: blur(10px);
 }
+.glass-card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-.glass-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-10px);
-}
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+.border-red { border-left: 4px solid var(--accent-red); }
+.border-green { border-left: 4px solid var(--accent-green); }
 
-/* Status Accents */
-.border-red { border-left: 5px solid var(--accent-red); }
-.border-green { border-left: 5px solid var(--accent-green); }
-
-.data-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-/* --- 6. INTERACTIVE ELEMENTS --- */
-.btn-request-large {
-    display: inline-block;
-    padding: 24px 50px;
+/* --- 5. THE PULSING CTA --- */
+.btn-request {
     background: var(--accent-red);
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    border-radius: 100px;
-    margin-top: 40px;
-    animation: pulse-red 3.5s infinite;
-    transition: transform 0.3s ease;
+    color: #fff; border: none; padding: 18px 40px; border-radius: 50px;
+    font-weight: 800; cursor: pointer; letter-spacing: 1px;
+    animation: pulse-red 3s infinite;
 }
-
 @keyframes pulse-red {
-    0% { box-shadow: 0 0 0 0 rgba(198, 26, 36, 0.6); }
-    70% { box-shadow: 0 0 0 25px rgba(198, 26, 36, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(198, 26, 36, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(198, 26, 36, 0); }
     100% { box-shadow: 0 0 0 0 rgba(198, 26, 36, 0); }
 }
 
-.btn-request-large:hover {
-    transform: scale(1.03);
-}
+/* --- 6. TEAM GRID --- */
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.team-member { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px; border: 1px solid var(--glass-border); }
+.team-role { color: var(--accent-red); font-family: 'JetBrains Mono'; font-size: 10px; text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 10px; }
 
-/* --- 7. PRELOADER --- */
-#preloader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100vh;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.loader-logo {
-    font-family: 'Plus Jakarta Sans';
-    font-weight: 800;
-    color: #000;
-    letter-spacing: -1px;
-    font-size: 1.8rem;
-}
-
-/* --- 8. RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .glass-nav { padding: 10px 20px; }
-    .nav-links { display: none; }
-    .hero { text-align: left; }
-    .glass-card { padding: 35px; }
-}
-/* --- HOVER GLOW ADDITIONS --- */
-
-/* Base transition for all cards */
-.glass-card {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.4s ease, 
-                border-color 0.4s ease;
-}
-
-/* Red Glow for The Gap cards */
-.border-red:hover {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 40px rgba(198, 26, 36, 0.15), 
-                inset 0 0 20px rgba(198, 26, 36, 0.05);
-}
-
-/* Green Glow for The Solution cards */
-.border-green:hover {
-    border-color: var(--accent-green);
-    box-shadow: 0 0 40px rgba(44, 197, 94, 0.15), 
-                inset 0 0 20px rgba(44, 197, 94, 0.05);
-}
-
-/* Neutral Glow for Team and Status cards */
-.glass-card:not(.border-red):not(.border-green):hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
-}
-
-/* Adds a subtle "light sweep" effect to the cards on hover */
-.glass-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.05),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-.glass-card:hover::after {
-    left: 100%;
+    .comparison-grid, .team-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 3.5rem; }
 }
