@@ -1,21 +1,22 @@
-/* --- DESIGN TOKENS --- */
+/* --- DESIGN TOKENS (LIGHT SLATE THEME) --- */
 :root {
     --brand-red: #c61a24;
-    --bg-black: #060606;
-    --panel-gray: #0f0f0f;
-    --text-main: #d9d9d9;
-    --text-dim: #757575;
+    --bg-main: #f4f7f9;       /* Light Blue-Grey Background */
+    --panel-slate: #ffffff;    /* White cards for clean contrast */
+    --border-cool: #d1d9e0;   /* Subtle blue-grey borders */
+    --text-primary: #1a1f23;  /* Dark Slate Text */
+    --text-muted: #586069;    /* Muted Slate Text */
     --white: #ffffff;
     --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    --font-mono: 'SFMono-Regular', Consolas, monospace;
 }
 
 /* --- RESET & BASICS --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-    background-color: var(--bg-black);
-    color: var(--text-main);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     font-family: var(--font-sans);
     line-height: 1.7;
     padding: 60px 20px;
@@ -25,39 +26,19 @@ body {
 }
 
 /* --- TYPOGRAPHY --- */
-h1, h2, h3, h4 { 
-    color: var(--white); 
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-h1 { 
-    font-size: 52px; 
-    margin-bottom: 24px; 
-    line-height: 1.1;
-}
-
+h1, h2, h3, h4 { color: var(--text-primary); font-weight: 700; letter-spacing: -0.02em; }
+h1 { font-size: 52px; margin-bottom: 24px; line-height: 1.1; }
 h2 { 
     font-size: 28px; 
     margin-top: 60px; 
     margin-bottom: 20px; 
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 1px solid #222;
+    border-bottom: 2px solid var(--brand-red); /* Red accent underline */
     padding-bottom: 10px;
 }
 
-h3 { font-size: 18px; margin-bottom: 8px; }
-
-p { 
-    margin-bottom: 20px; 
-    color: var(--text-dim); 
-    font-size: 15px; 
-    max-width: 75ch;
-}
-
-strong { color: var(--text-main); font-weight: 600; }
-
+p { margin-bottom: 20px; color: var(--text-muted); font-size: 15px; max-width: 75ch; }
 .eyebrow {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -73,62 +54,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid var(--border-cool);
     padding-bottom: 20px;
     margin-bottom: 60px;
 }
-
-.brand { 
-    font-size: 14px; 
-    font-weight: 800; 
-    letter-spacing: 0.3em; 
-    color: var(--white);
-}
-
+.brand { font-size: 14px; font-weight: 800; letter-spacing: 0.3em; color: var(--text-primary); }
 nav a {
-    color: var(--text-dim);
+    color: var(--text-muted);
     text-decoration: none;
     margin-left: 25px;
     font-size: 11px;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    transition: color 0.2s ease;
 }
-
 nav a:hover { color: var(--brand-red); }
-
-/* --- HERO SECTION --- */
-.hero { margin-bottom: 80px; }
-.hero-subtitle { font-size: 18px; line-height: 1.6; color: var(--text-main); }
-.cta-arrow { 
-    font-family: var(--font-mono);
-    color: var(--brand-red); 
-    font-size: 12px;
-    margin-top: 30px; 
-    display: inline-block; 
-    font-weight: bold; 
-    text-decoration: none;
-    letter-spacing: 0.1em;
-}
-
-/* --- LISTS --- */
-ul { list-style: none; margin-bottom: 30px; }
-li { 
-    margin-bottom: 12px; 
-    padding-left: 20px; 
-    position: relative;
-    color: var(--text-main); 
-    font-size: 14px; 
-}
-li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 8px;
-    height: 1px;
-    background: var(--brand-red);
-}
 
 /* --- GRIDS & CARDS --- */
 .comparison-grid {
@@ -136,95 +75,56 @@ li::before {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     margin: 60px 0;
-    background: var(--panel-gray);
+    background: #e9eff3; /* Slightly darker blue-grey for the box */
     padding: 40px;
     border-radius: 4px;
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: 40px 0;
-}
-
-.stat-item {
-    background: var(--panel-gray);
-    padding: 25px 15px;
-    border-radius: 2px;
-    border-top: 2px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.stat-item:hover { border-color: var(--brand-red); }
-
-.stat-item h3 { 
-    color: var(--brand-red); 
-    font-size: 28px; 
-    font-family: var(--font-mono);
-    margin-bottom: 10px; 
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .team-member { 
-    border: 1px solid #222; 
+    background: var(--panel-slate);
+    border: 1px solid var(--border-cool); 
     padding: 25px; 
-    transition: background 0.3s;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle depth */
 }
 
-.team-member:hover { background: var(--panel-gray); }
-
-.team-role { 
-    color: var(--brand-red); 
-    font-family: var(--font-mono);
-    font-size: 10px; 
-    text-transform: uppercase; 
-    margin-bottom: 10px; 
-    display: block; 
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 40px 0; }
+.stat-item {
+    background: var(--panel-slate);
+    padding: 25px 15px;
+    border: 1px solid var(--border-cool);
+    text-align: center;
 }
+.stat-item h3 { color: var(--brand-red); font-size: 28px; font-family: var(--font-mono); }
 
-/* --- FOOTER & FORM --- */
-.footer {
-    margin-top: 100px;
-    padding: 60px 0;
-    border-top: 1px solid #222;
-}
-
+/* --- FORM --- */
 .contact-box {
-    background: var(--panel-gray);
+    background: #e9eff3;
     padding: 40px;
     max-width: 600px;
     margin: 40px auto;
+    border-radius: 4px;
 }
-
 .contact-box input, .contact-box select {
     width: 100%;
-    background: #000;
-    border: 1px solid #333;
-    color: #fff;
+    background: var(--white);
+    border: 1px solid var(--border-cool);
     padding: 12px;
     margin-bottom: 15px;
 }
-
 .btn-request {
     background: var(--brand-red);
-    color: #fff;
+    color: var(--white);
     border: none;
     padding: 15px;
     width: 100%;
-    cursor: pointer;
     font-weight: bold;
-    font-family: var(--font-mono);
-    letter-spacing: 0.1em;
+    cursor: pointer;
 }
 
 /* --- MOBILE --- */
 @media (max-width: 768px) {
     .comparison-grid, .team-grid, .stats-grid { grid-template-columns: 1fr; }
-    h1 { font-size: 36px; }
+    h1 { font-size: 34px; }
 }
