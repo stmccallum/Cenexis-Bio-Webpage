@@ -157,7 +157,7 @@ main, header, footer {
         transform: translateY(0); 
     }
 }
-/* --- STAGGERED INTRO ANIMATION --- */
+/* --- TYPEWRITER INTRO ANIMATION --- */
 
 #intro-overlay {
     position: fixed;
@@ -168,39 +168,62 @@ main, header, footer {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* This fades the white background out AFTER the text */
     animation: fadeOverlay 0.8s ease-in-out forwards;
-    animation-delay: 2.5s; 
+    animation-delay: 3.5s; /* Wait for typing (2s) + pause (0.7s) + text fade (0.8s) */
 }
 
 .intro-content {
-    font-family: var(--font-sans);
+    display: inline-block;
+}
+
+.typing-text {
+    display: block;
+    font-family: var(--font-mono); /* Mono looks best for typing */
     font-weight: 800;
     font-size: 28px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     color: #000000;
-    /* This fades the text out FIRST */
-    animation: fadeText 0.5s ease-in-out forwards;
-    animation-delay: 1.8s; 
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--brand-red); /* The "cursor" */
+    width: 0; /* Start at 0 width */
+    
+    /* Animation 1: Type the text | Animation 2: Blink cursor | Animation 3: Fade text out */
+    animation: 
+        typing 2s steps(25) forwards, 
+        blink 0.7s step-end infinite,
+        fadeText 0.5s ease-in-out forwards 3s;
 }
 
-/* Keyframes for the sequence */
+/* 1. Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 2. Blinking cursor */
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--brand-red); }
+}
+
+/* 3. Text Fading Out */
 @keyframes fadeText {
-    to { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 0; transform: translateY(-10px); border-color: transparent; }
 }
 
+/* 4. Background Fading Out */
 @keyframes fadeOverlay {
     to { opacity: 0; visibility: hidden; }
 }
 
-/* THE PAGE REVEAL */
+/* PAGE REVEAL */
 main, header, footer {
     opacity: 0;
     animation: fadeInContent 1s ease-out forwards;
-    animation-delay: 3s; /* Builds the page once the white is gone */
+    animation-delay: 4s; /* Builds page after all intro animations finish */
 }
 
 @keyframes fadeInContent {
-    from { opacity: 0; }
     to { opacity: 1; }
 }
