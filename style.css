@@ -18,14 +18,43 @@
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
+    background-color: #1A1C1E; /* Deep Charcoal */
+    color:#E1E1E1;           /* Easy-to-read Light Grey */
+    font-family: 'Inter', sans-serif;
     line-height: 1.7;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+/* Give sections a subtle "Military Grade" border and background */
+section {
+    background-color: #242729;
+    border-left: 4px solid #4B5342; /* Muted Olive Border */
+    margin-bottom: 20px;
+    padding: 40px;
+}
+
+/* Make buttons look like "Action Items" or HUD elements */
+.button, .btn-primary {
+    background-color: #D48C2B !important; /* Amber / Warning Orange */
+    color: #000 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 2px; /* Square corners look more industrial */
+    border: none;
+}
+
+/* Add a subtle "Grid" overlay to the background for tech-texture */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(#ffffff05 1px, transparent 1px);
+    background-size: 30px 30px; /* Creates a subtle HUD grid */
+    pointer-events: none;
 }
 
 /* --- FIXED HEADER & NAVIGATION --- */
