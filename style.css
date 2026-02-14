@@ -93,3 +93,62 @@ main { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
     opacity: 0.5;
     margin-top: 40px;
 }
+/* ============================================================
+   INTRO OVERLAY & ENTRANCE ANIMATIONS
+   ============================================================ */
+
+/* 1. The White Splash Screen */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* High-contrast white start */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Stays above the sticky header */
+    animation: fadeOut 0.8s ease-in-out forwards;
+    animation-delay: 2s; /* Shows "CNS DEFENSE" for 2 seconds */
+}
+
+/* 2. The Text on the Splash Screen */
+.intro-content {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 0.3em;
+    color: #000000; /* High-contrast black text */
+    text-align: center;
+}
+
+.intro-pipe {
+    color: var(--brand-red); /* Branding red accent */
+    margin: 0 10px;
+}
+
+/* 3. The Main Content Fade-In */
+/* This hides the site initially so it can "build" after the splash */
+main, header, footer {
+    opacity: 0; 
+    animation: fadeInPage 1.2s ease-out forwards;
+    animation-delay: 2.5s; /* Starts after the splash screen begins to fade */
+}
+
+/* 4. Animation Keyframes */
+@keyframes fadeOut {
+    0% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadeInPage {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); /* Subtle upward slide effect */
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
