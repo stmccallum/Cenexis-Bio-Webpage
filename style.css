@@ -22,17 +22,26 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: var(--bg-main);
+    
+    /* FIX 1: Use a solid background color instead of transparency */
+    background-color: var(--bg-main); 
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    /* FIX FOR ARTIFACTS: Ensure the border is solid and no extra shadow */
-    border-bottom: 1px solid var(--border-cool);
-    box-shadow: none; 
     
-    /* Ensures no transparency issues during scroll */
-    backdrop-filter: blur(5px);
+    /* FIX 2: Refine the border to be more stable during scroll */
+    border-bottom: 1px solid var(--border-cool);
+    
+    /* FIX 3: Force GPU rendering to prevent flickering and dots */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    
+    /* FIX 4: Ensure no box-shadow is fighting with the border */
+    box-shadow: none;
 }
 
 main { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
