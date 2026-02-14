@@ -27,7 +27,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
+    /* FIX FOR ARTIFACTS: Ensure the border is solid and no extra shadow */
     border-bottom: 1px solid var(--border-cool);
+    box-shadow: none; 
+    
+    /* Ensures no transparency issues during scroll */
+    backdrop-filter: blur(5px);
 }
 
 main { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
